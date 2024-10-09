@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Form Pendaftaran</title>
+    <style>
+        .list-form {
+            display: none;
+        }
+        .aktif {
+            display: block;
+        }
+        .hidden {
+            display: none;
+        }
+        table, th, td {
+            border: 1px solid rgb(0, 0, 0);
+            border-collapse: collapse;
+            margin: auto;
+            width: 60%;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function switchForm() {
+            const selectedValue = document.getElementById('pilih-jenjang').value;
+
+            if (selectedValue) {
+                document.getElementById('halaman-awal').classList.add('hidden');
+
+                const forms = document.querySelectorAll('.list-form');
+                forms.forEach(form => form.classList.remove('aktif'));
+
+                const selectedForm = document.getElementById('form' + selectedValue);
+                selectedForm.classList.add('aktif');
+            }
+        }
+
+        function goBack() {
+            document.getElementById('halaman-awal').classList.remove('hidden');
+            
+            const forms = document.querySelectorAll('.list-form');
+            forms.forEach(form => form.classList.remove('aktif'));
+        }
+    </script>
+
+    <div id="halaman-awal">
+        <h1>Formulir Pendaftaran</h1>
+        <p align="center">
+            <label for="pilih-jenjang" style="font-size: large;">Pilih Jenjang:</label>
+                <select id="pilih-jenjang" name="pilih-jenjang" style="font-size: small;">
+                <option value="" hidden selected>Pilih</option>
+                <option value="smp">SMP</option>
+                <option value="smu">SMA/SMK</option>
+                <option value="univ">UNIVERSITAS</option>
+                </select>
+        </p>
+        <p align="center">
+            <button onclick="switchForm()">Confirm</button>
+        </p>
+    </div>
+
+    <div id="formsmp" class="list-form">
+        <h1>Form Pendaftaran SMP</h1>
+        <h2>Data Diri</h2>
+        <table>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td><input type="text" name="nama_smp" placeholder="Masukan Nama Lengkap"></td>
+            </tr>
+            <tr>
+                <td>Tempat Lahir</td>
+                <td><input type="text" name="tempatlahir_smp"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggalahir_smp"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td><select id="jenis-kelmain_smp" name="jenis-kelamin_smp">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="laki-laki">Laki-Laki</option>
+                    <option value="perempuan">Perempuan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_smp"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_smp" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email_smp" placeholder="contoh@gmail.com"></td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td><select id="agama_smp" name="agama_smp">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="islam">Islam</option>
+                    <option value="kristen">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="budha">Budha</option>
+                    <option value="konghucu">Konghucu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Asal Sekolah</td>
+                <td><input type="text" name="asalsekolah_smp" placeholder="Sekolah Dasar"></td>
+            </tr>
+            <tr>
+                <td>Nilai Rapor</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+        <h2>Data Orang Tua/Wali</h2>
+        <table>
+            <tr>
+                <td>Nama Orang Tua/Wali</td>
+                <td><input type="text" name="wali_smp" placeholder="Masukan Nama Wali"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_wali_smp"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_wali_smp" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Pekerjaan</td>
+                <td><input type="text" name="kerjaan_wali_smp"></td>
+            </tr>
+            <tr>
+                <td>Kartu Keluarga</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+        <p align="center">
+            <button>Confirm</button>
+            <button onclick="goBack()">Kembali</button>
+        </p>
+    </div>
+
+    <div id="formsmu" class="list-form">
+        <h1>Form Pendaftaran SMA/SMK</h1>
+        <h2>Data Diri</h2>
+        <table>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td><input type="text" name="nama_smu" placeholder="Masukan Nama Lengkap"></td>
+            </tr>
+            <tr>
+                <td>Tempat Lahir</td>
+                <td><input type="text" name="tempatlahir_smu"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggalahir_smu"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td><select id="jenis-kelmain_smu" name="jenis-kelamin_smu">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="laki-laki">Laki-Laki</option>
+                    <option value="perempuan">Perempuan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_smu"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_smu" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email_smu" placeholder="contoh@gmail.com"></td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td><select id="agama_smu" name="agama_smu">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="islam">Islam</option>
+                    <option value="kristen">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="budha">Budha</option>
+                    <option value="konghucu">Konghucu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Asal Sekolah</td>
+                <td><input type="text" name="asalsekolah_smu" placeholder="Sekolah Menengah Pertama"></td>
+            </tr>
+            <tr>
+                <td>Nilai Rapor</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+            <h2>Data Orang Tua/Wali</h2>
+        <table>
+            <tr>
+                <td>Nama Orang Tua/Wali</td>
+                <td><input type="text" name="wali_smu" placeholder="Masukan Nama Wali"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_wali_smu"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_wali_smu" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Pekerjaan</td>
+                <td><input type="text" name="kerjaan_wali_smu"></td>
+            </tr>
+            <tr>
+                <td>Kartu Keluarga</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+        <p align="center">
+            <button>Confirm</button>
+            <button onclick="goBack()">Kembali</button>
+        </p>
+    </div>
+
+    <div id="formuniv" class="list-form">
+        <h1>Form Pendaftaran Universitas</h1>
+        <h2>Data Diri</h2>
+        <table>
+            <tr>
+                <td>Nama Lengkap</td>
+                <td><input type="text" name="nama_univ" placeholder="Masukan Nama Lengkap"></td>
+            </tr>
+            <tr>
+                <td>Tempat Lahir</td>
+                <td><input type="text" name="tempatlahir_univ"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggalahir_univ"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td><select id="jenis-kelmain_univ" name="jenis-kelamin_univ">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="laki-laki">Laki-Laki</option>
+                    <option value="perempuan">Perempuan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_univ"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_univ" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email_univ" placeholder="contoh@gmail.com"></td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td><select id="agama_univ" name="agama_univ">
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="islam">Islam</option>
+                    <option value="kristen">Kristen</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="budha">Budha</option>
+                    <option value="konghucu">Konghucu</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Asal Sekolah</td>
+                <td><input type="text" name="asalsekolah_univ" placeholder="SMA/SMK"></td>
+            </tr>
+            <tr>
+                <td>Nilai Rapor</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+        <h2>Data Orang Tua/Wali</h2>
+        <table>
+            <tr>
+                <td>Nama Orang Tua/Wali</td>
+                <td><input type="text" name="wali_univ" placeholder="Masukan Nama Wali"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><input type="text" name="alamat_wali_univ"></td>
+            </tr>
+            <tr>
+                <td>No Telepon</td>
+                <td><input type="text" name="notelp_wali_univ" placeholder="08xxxx"></td>
+            </tr>
+            <tr>
+                <td>Pekerjaan</td>
+                <td><input type="text" name="kerjaan_wali_univ"></td>
+            </tr>
+            <tr>
+                <td>Kartu Keluarga</td>
+                <td><input type="file" id="file-input" name="file-input" accept="file/*"></td>
+            </tr>
+        </table>
+
+        <p align="center">
+            <button>Confirm</button>
+            <button onclick="goBack()">Kembali</button>
+        </p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Table</title>
+    <style>
+        table {
+            border: 1px solid rgb(38, 190, 18);
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th 
+        {
+            background-color: rgb(76, 241, 76);
+        }
+        td, th 
+        {
+            border: 1px solid rgb(18, 182, 40);
+            border-collapse: collapse;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even) 
+        {
+            background-color: #31f01f;
+        }
+        tr:nth-child(odd) 
+        {
+            background-color: #d3c7c7;
+        }
+        td:nth-child(2), td:nth-child(3) 
+        {
+            text-align: left;
+            padding-left: 8px;
+        }
+        td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7)
+        {
+            text-align: right;
+            padding-left: 8px;
+        }
+        tr:hover
+        {
+            background-color: rgb(17, 143, 0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Latihan Table</h1>
+    <table>
+        <tr>
+            <th rowspan="2" width="5%">No</th>
+            <th rowspan="2" width="15%">NIM</th>
+            <th rowspan="2" width="40%">Nama</th> 
+            <th colspan="4" width="40%">Nilai</th>
+        </tr>
+        <tr>
+            <th>Presensi</th>
+            <th>Tugas</th>
+            <th>UTS</th>
+            <th>UAS</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>12345</td>
+            <td>Andi</td>
+            <td>90</td>
+            <td>80</td>
+            <td>90</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>12346</td>
+            <td>Budi</td>
+            <td>80</td>
+            <td>90</td>
+            <td>80</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>12347</td>
+            <td>Caca</td>
+            <td>70</td>
+            <td>70</td>
+            <td>70</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>12348</td>
+            <td>Dodi</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>12349</td>
+            <td>Edi</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+            <td>50</td>
+        </tr>
+    </table>
+</body>
+</html>
