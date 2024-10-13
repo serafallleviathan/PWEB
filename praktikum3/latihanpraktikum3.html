@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Formulir Pendaftaran</h1>
+    <ul class="tabs">
+        <li><a href="#tab1" class="active">Data Pribadi</a></li>
+        <li><a href="#tab2">Data Orang Tua</a></li>
+        <li><a href="#tab3">Data Prestasi</a></li>
+        <li><a href="#tab4">Data Pilihan Program Studi dan Program Studi</a></li>
+    </ul>
+
+    <form>
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">
+                <h2>Data Pribadi</h2>
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama_lengkap" required><br><br>
+                <label>Tanggal Lahir</label>
+                <input type="date" name="tanggal_lahir" required><br><br>
+                <label>Jenis Kelamin</label>
+                <select name="jenis_kelamin" required>
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="laki-laki">Laki-Laki</option>
+                    <option value="perempuan">Perempuan</option>
+                </select><br><br>
+            </div>
+
+            <div id="tab2" class="tab-pane">
+                <h2>Data Orang Tua</h2>
+                <label>Nama Ayah</label>
+                <input type="text" name="nama_ayah" required><br><br>
+                <label>Nama Ibu</label>
+                <input type="text" name="nama_ibu" required><br><br>
+                <label>Alamat Orang Tua</label>
+                <textarea name="alamat_ortu" required></textarea><br><br>
+            </div>
+
+            <div id="tab3" class="tab-pane">
+                <h2>Data Prestasi</h2>
+                <label>Prestasi Akademik</label>
+                <input type="text" name="prestasi_Akademik" required><br><br>
+                <label>Prestasi Non Akademik</label>
+                <input type="text" name="prestasi_Non_Akademik" required><br><br>
+            </div>
+
+            <div id="tab4" class="tab-pane">
+                <h2>Data Pilihan Program Studi dan Program Studi</h2>
+                <label>Pilihan Program Studi</label>
+                <select name="pilihan_program_studi" required>
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="informatika (S1)">informatika S1</option>
+                    <option value="sistem Informasi (S1)">Sistem Informasi S1</option>
+                    <option value="teknologi Informasi (S1)">Teknologi Informasi S1</option>
+                </select><br><br>
+
+                <label>Pilihan Konsentrasi</label>
+                <select name="pilihan_konsentrasi" required>
+                    <option value="" hidden selected>Pilih</option>
+                    <option value="robotika">Robotika</option>
+                    <option value="Pemrograman Web/Mobile">Pemrograman Web/Mobile</option>
+                    <option value="multimedia">Multimedia</option>
+                    <option value="e-busines">E-busines</option>
+                    <option value="manajemen informatika">Manajemen Informatika</option>
+                    <option value="cyber security/forensic">Cyber Security/Forensic</option>
+                    <option value="internet of things">Internet of Things</option>
+                    <option value="animasi dan game">Animasi dan Game</option>
+                </select><br><br>
+            </div>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit">Kirim</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
