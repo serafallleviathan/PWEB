@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Javasript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <label for="kodeBarang">Kode Barang
+        <select name="kodeBarang" id="kodeBarang">
+            <option value="SPT">SPT</option>
+            <option value="SND">SND</option>
+            <option value="TST">TST</option>
+            <option value="TOP">TOP</option>
+        </select>
+    </label><br>
+
+    <label for="jumlahBarang">Jumlah Barang</label><br>
+    <input type="number" name="jumlahBarang" id="jumlahBarang"><br>
+
+    <label for="caraBeli">Cara Beli</label><br>
+    <input type="text" name="caraBeli" id="caraBeli"><br>
+
+    <button onclick="simpan()">Simpan</button>
+    <button onclick="kosongkan()">Reset</button>
+
+    <p id="dataPenjualan">Hello World</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
