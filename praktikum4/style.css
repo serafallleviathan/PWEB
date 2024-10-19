@@ -38,6 +38,10 @@ tr:hover {
     background-color: #ff0000;
 }
 
+.subtotal {
+    text-align: right;
+}
+
 input, select {
     display: inline;
     width: 200px;

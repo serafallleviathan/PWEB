@@ -73,7 +73,7 @@ function tampilkan() {
         Subtotal += penjualan.totalHarga;
     });
 
-    isiTabel += "<tr><th colspan='6'>Subtotal</th><th>" + Subtotal + "</th></tr>";
+    isiTabel += "<tr><th colspan='6'>Subtotal</th><th class='subtotal'>" + Subtotal + "</th></tr>";
     document.getElementById("dataPenjualan").innerHTML = headerTabel + isiTabel + footerTabel;
 }
 
