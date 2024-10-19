@@ -13,17 +13,17 @@ th, td {
     text-align: center;
 }
 
-th {
+th, td:nth-child(8) {
     background-color: rgb(0, 255, 13);
     color: rgb(0, 0, 0);
 }
 
 tr:nth-child(even) {
-    background-color: #a1a1a1;
+    background-color: #b7ffc1;
 }
 
 tr:nth-child(odd) {
-    background-color: #65ff57;
+    background-color: #e6ffaa;
 }
 
 td:nth-child(2), td:nth-child(3), td:nth-child(6) {
@@ -35,19 +35,12 @@ td:nth-child(4), td:nth-child(5), td:nth-child(7) {
 }
 
 tr:hover {
-    background-color: #00eeff;
+    background-color: #ff0000;
 }
 
-select {
+input, select {
     display: inline;
-    width: 40%;
-    padding: 8px;
-    border: 1px solid black;
-}
-
-input {
-    display: inline;
-    width: 15%;
+    width: 200px;
     padding: 8px;
     border: 1px solid black;
 }
@@ -55,6 +48,7 @@ input {
 label {
     display: block;
     margin: 8px;
+    text-align: left;
 }
 
 button {
@@ -74,4 +68,5 @@ button:hover {
 
 .container {
     display: flex;
+    align-items: center;
 }
