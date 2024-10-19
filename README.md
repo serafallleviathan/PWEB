@@ -7,9 +7,9 @@
 <h3>
 <ul align=left>
 <li><a href="praktikum1">Praktikum1</a></li>
-<li>Praktikum2</li>
-<li>Praktikum3</li>
-<li>Praktikum4</li>
+<li><a href="praktikum2">Praktikum2</a></li>
+<li><a href="praktikum3">Praktikum3</a></li>
+<li><a href="praktikum4">Praktikum4</a></li>
 </ul>
 </h3>
 <p>
