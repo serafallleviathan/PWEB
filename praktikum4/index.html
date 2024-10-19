@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
     <label for="kodeBarang">Kode Barang
         <select name="kodeBarang" id="kodeBarang">
-            <option value="SPT">SPT</option>
-            <option value="SND">SND</option>
-            <option value="TST">TST</option>
-            <option value="TOP">TOP</option>
+            <option value="SPT" nama="Sepatu" harga="150000">SPT</option>
+            <option value="SND" nama="Sendal" harga="30000">SND</option>
+            <option value="TST" nama="T-Shirt" harga="100000">TST</option>
+            <option value="TOP" nama="Topi" harga="20000">TOP</option>
         </select>
     </label><br>
 
@@ -25,8 +25,9 @@
 
     <button onclick="simpan()">Simpan</button>
     <button onclick="kosongkan()">Reset</button>
+    </div>
 
-    <p id="dataPenjualan">Hello World</p>
+    <p id="dataPenjualan">Hasil</p>
 
     <script src="script.js"></script>
 </body>
