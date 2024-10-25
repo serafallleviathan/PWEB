@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <!-- Menentukan karakter encoding -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mengatur
+responsivitas halaman -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-
+QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+crossorigin="anonymous">
+<!-- Mengimpor Bootstrap CSS dari CDN -->
+<title>Profil Perusahaan</title> <!-- Judul halaman -->
+<style>
+/* Gaya umum untuk body */
+body {
+background-color: #f8f9fa;
+/* Warna latar belakang halaman */
+}
+/* Gaya untuk header */
+.header {
+background-color: #007bff;
+/* Warna latar belakang header */
+color: white;
+/* Warna teks di header */
+padding: 20px 0;
+/* Padding atas dan bawah */
+}
+/* Gaya untuk kartu informasi */
+.card {
+border: none;
+/* Menghilangkan border default */
+}
+/* Gaya untuk elemen testimoni */
+.testimonial {
+background-color: #e9f1ff;
+/* Warna latar belakang testimoni */
+
+padding: 20px;
+/* Padding di dalam testimoni */
+border-radius: 8px;
+/* Sudut membulat */
+}
+/* Gaya untuk gambar dalam galeri */
+.gallery img {
+max-width: 100%;
+/* Memastikan gambar tidak melebihi lebar kolom */
+height: auto;
+/* Tinggi otomatis agar proporsional */
+transition: transform 0.2s, box-shadow 0.2s;
+/* Efek transisi */
+}
+/* Efek hover pada gambar galeri */
+.gallery img:hover {
+transform: scale(1.05);
+/* Memperbesar gambar saat hover */
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+/* Menambahkan bayangan */
+}
+/* Gaya untuk item layanan */
+.service-item {
+transition: transform 0.2s;
+/* Efek transisi pada item layanan */
+}
+/* Efek hover pada item layanan */
+.service-item:hover {
+transform: scale(1.05);
+/* Memperbesar item layanan saat hover */
+background-color: #e9f1ff;
+/* Warna latar belakang saat hover */
+border-radius: 8px;
+/* Sudut membulat saat hover */
+}
+/* Gaya untuk kontrol carousel */
+.carousel-control-prev,
+.carousel-control-next {
+color: red;
+/* Mengatur warna kontrol menjadi merah */
+}
+/* Mengatur ikon kontrol */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+background-color: rgb(172, 249, 221);
+
+/* Latar belakang ikon putih */
+border-radius: 50%;
+/* Membulatkan ikon */
+}
+/* Gaya untuk gambar tim */
+.team-member img {
+transition: transform 0.2s;
+/* Efek transisi pada gambar tim */
+}
+/* Efek hover pada gambar tim */
+.team-member img:hover {
+transform: scale(1.1);
+/* Memperbesar gambar tim saat hover */
+}
+</style>
+</head>
+<body>
+<!-- Header Perusahaan -->
+<div class="header text-center">
+<h1>Nama Perusahaan</h1> <!-- Nama perusahaan ditampilkan di tengah -->
+</div>
+<!-- Kontainer utama -->
+<div class="container mt-4">
+<!-- Kartu untuk informasi tentang perusahaan -->
+<div class="card mb-4">
+<div class="card-body">
+<h5 class="card-title">Tentang Kami</h5> <!-- Judul bagian -->
+
+<p class="card-text">Deskripsi singkat tentang perusahaan. Misalnya, misi, visi, dan nilai-nilai perusahaan.</p> <!-- Deskripsi perusahaan -->
+</div>
+</div>
+<!-- Bagian Produk Layanan -->
+<h5 class="mt-4">Produk Layanan</h5>
+<div class="row mb-4">
+<!-- Masing-masing item layanan -->
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Pembuatan Aplikasi Web</h6> <!-- Nama layanan -->
+<p>Mengembangkan aplikasi web sesuai kebutuhan klien dengan teknologi terbaru.</p>
+<!-- Deskripsi layanan -->
+</div>
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Pembuatan Aplikasi Mobile</h6>
+<p>Menciptakan aplikasi mobile yang user-friendly untuk iOS dan Android.</p>
+</div>
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Pembuatan Aplikasi Desktop</h6>
+<p>Membuat aplikasi desktop yang kuat dan efisien untuk berbagai platform.</p>
+</div>
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Konsultasi Teknologi</h6>
+<p>Menyediakan layanan konsultasi untuk membantu strategi teknologi perusahaan Anda.</p>
+</div>
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Pengembangan E-commerce</h6>
+<p>Membangun platform e-commerce yang aman dan mudah digunakan.</p>
+</div>
+<div class="col-md-4 mb-3 service-item text-center p-3 border">
+    <img src="program.jpeg" width="100" height="100" alt="aplikasi web">
+<h6>Integrasi Sistem</h6>
+<p>Membantu integrasi sistem untuk meningkatkan efisiensi dan produktivitas.</p>
+</div>
+</div>
+<!-- Bagian Daftar Tim Perusahaan -->
+<h5>Daftar Tim Perusahaan</h5>
+<div class="row">
+<div class="col-md-4 text-center mb-4 team-member">
+<img src="manager.jpg" width="150" height="150" class="rounded-circle mb-2" alt="Anggota Tim 1">
+<!-- Gambar anggota tim -->
+<h6>Nama Anggota 1</h6>
+<p>Jabatan</p>
+</div>
+<div class="col-md-4 text-center mb-4 team-member">
+<img src="manager.jpg" width="150" height="150" class="rounded-circle mb-2" alt="Anggota Tim 2">
+<h6>Nama Anggota 2</h6>
+<p>Jabatan</p>
+</div>
+<div class="col-md-4 text-center mb-4 team-member">
+<img src="manager.jpg" width="150" height="150" class="rounded-circle mb-2" alt="Anggota Tim 3">
+<h6>Nama Anggota 3</h6>
+<p>Jabatan</p>
+</div>
+</div>
+<!-- Bagian Galeri Kegiatan -->
+<h5>Galeri Kegiatan</h5>
+<div class="row gallery mb-4">
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 1" class="img-fluid"> <!-- Gambar kegiatan -->
+</div>
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 2" class="img-fluid">
+
+</div>
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 3" class="img-fluid">
+</div>
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 4" class="img-fluid">
+</div>
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 5" class="img-fluid">
+</div>
+<div class="col-md-4 mb-3">
+<img src="meeting.jpg" alt="Kegiatan 6" class="img-fluid">
+</div>
+</div>
+<!-- Bagian Testimoni Pelanggan -->
+<h5>Testimoni Pelanggan</h5>
+<div id="testimonialCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+<!-- Carousel untuk testimoni -->
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="testimonial">
+<p>"Pelayanan yang sangat memuaskan! Aplikasi yang dibuat sesuai dengan kebutuhan kami."</p>
+
+<footer>- Pelanggan 1</footer>
+</div>
+</div>
+<div class="carousel-item">
+<div class="testimonial">
+<p>"Tim yang sangat profesional dan responsif. Hasil kerja sangat memuaskan."</p>
+<footer>- Pelanggan 2</footer>
+</div>
+</div>
+<div class="carousel-item">
+<div class="testimonial">
+<p>"Kami sangat puas dengan aplikasi yang dikembangkan. Terima kasih!"</p>
+<footer>- Pelanggan 3</footer>
+</div>
+</div>
+<div class="carousel-item">
+<div class="testimonial">
+<p>"Sangat recommended! Proses yang cepat dan hasil yang luar biasa."</p>
+<footer>- Pelanggan 4</footer>
+</div>
+</div>
+<div class="carousel-item">
+<div class="testimonial">
+<p>"Aplikasi yang dikembangkan sangat user-friendly. Senang bekerja sama!"</p>
+<footer>- Pelanggan 5</footer>
+</div>
+</div>
+
+</div>
+<!-- Kontrol untuk navigasi carousel -->
+<button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span> <!-- Teks untuk kontrol sebelumnya -->
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span> <!-- Teks untuk kontrol selanjutnya -->
+</button>
+</div>
+<!-- Bagian Alamat dan Kontak -->
+<h5 class="mt-4">Alamat</h5>
+<p>Jalan Contoh No. 123, Kota, Provinsi, Kode Pos</p> <!-- Alamat perusahaan -->
+<h5>Kontak</h5>
+<p>Email: example@perusahaan.com</p> <!-- Email perusahaan -->
+<p>Telepon: (021) 12345678</p> <!-- Nomor telepon perusahaan -->
+</div>
+<!-- Mengimpor skrip Bootstrap untuk fungsionalitas interaktif -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
