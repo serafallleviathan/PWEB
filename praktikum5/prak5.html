@@ -34,7 +34,17 @@
         }
 
         .gallery img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0.4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .left img:hover {
+            transform: rotate(-5deg) scale(1.1);
+            box-shadow: 0.4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .right img:hover {
+            transform: rotate(5deg) scale(1.1);
             box-shadow: 0.4px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -131,22 +141,22 @@
 
         <h5>Galeri Kegiatan</h5>
         <div class="row gallery mb-4">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 left">
                 <img src="meeting.jpg" alt="Kegiatan 1" class="img-fluid">
             </div>
             <div class="col-md-4 mb-3">
                 <img src="meeting.jpg" alt="Kegiatan 2" class="img-fluid">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 right">
                 <img src="meeting.jpg" alt="Kegiatan 3" class="img-fluid">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 left">
                 <img src="meeting.jpg" alt="Kegiatan 4" class="img-fluid">
             </div>
             <div class="col-md-4 mb-3">
                 <img src="meeting.jpg" alt="Kegiatan 5" class="img-fluid">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 right">
                 <img src="meeting.jpg" alt="Kegiatan 6" class="img-fluid">
             </div>
         </div>
@@ -197,11 +207,11 @@
         </div>
 
         <h5 class="mt-4">Alamat</h5>
-        <p>Jalan Contoh No. 123, Kota, Provinsi, Kode Pos</p>
+        <p>Jalan Raya Kembangan No.23, Purbalingga, Jawa Tengah, 53391</p>
 
         <h5>Kontak</h5>
-        <p>Email: example@perusahaan.com</p>
-        <p>Telepon: (021) 12345678</p>
+        <p>Email: ptjaya@gmail.com</p>
+        <p>Telepon: 0819-1234-5678</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
