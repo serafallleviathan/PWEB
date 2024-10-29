@@ -11,6 +11,7 @@
 <li><a href="praktikum2">Praktikum2</a></li>
 <li><a href="praktikum3">Praktikum3</a></li>
 <li><a href="praktikum4">Praktikum4</a></li>
+<li><a href="praktikum5">Praktikum5</a></li>
 </ul>
 </h3>
 <p>
