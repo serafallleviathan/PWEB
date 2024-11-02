@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Tempat Duduk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .seat-selection, .rules, .booking-table {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .seat-selection {
+            width: 200px;
+            text-align: center;
+        }
+        /* Layout kursi dalam grid 3 kolom */
+        #seatContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .seat {
+            background-color: green;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .selected {
+            background-color: red !important;
+        }
+        .driver {
+            background-color: grey;
+        }
+        .booking-table {
+            flex-grow: 1;
+        }
+        .rules {
+            width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: green;
+            color: white;
+        }
+        .button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        /* Styles for Accordion */
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: background-color 0.4s;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .accordion:hover {
+            background-color: #ccc;
+        }
+        .panel {
+            padding: 0 10px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .driver {
+    background-color: grey; /* Warna untuk kursi driver */
+    cursor: not-allowed; /* Mengubah kursor untuk menunjukkan bahwa kursi tidak dapat dipilih */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Seat Selection Area -->
+        <div class="seat-selection">
+            <h2>Jumlah Tempat Duduk</h2>
+            <select id="tempatduduk">
+                <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="11">11</option>
+                <option value="17">17</option>
+            </select>
+            <br>
+            <button class="button" onclick="mulai()">Mulai</button>
+            <button class="button" onclick="reset()">Reset</button>
+            <div id="seatContainer"></div>
+            <input type="text" id="namaPemesan" placeholder="Masukan Nama Pemesan" style="margin-top: 10px; width: 100%; padding: 5px;">
+            <button class="button" style="width: 100%;" onclick="simpan()">Simpan</button>
+        </div>
+
+        <!-- Booking Table Area -->
+        <div class="booking-table">
+            <table id="bookingTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Pemesan</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rules Area with Accordion -->
+        <div class="rules">
+            <button class="accordion">A. Ketentuan Pendaftaran dan Pembayaran</button>
+            <div class="panel">
+                <p>Isi ketentuan pendaftaran dan pembayaran.</p>
+            </div>
+
+            <button class="accordion">B. Pembatalan/Penundaan Tour</button>
+            <div class="panel">
+                <p>Isi pembatalan atau penundaan tour.</p>
+            </div>
+
+            <button class="accordion">C. Peraturan MAS-TOUR Travel</button>
+            <div class="panel">
+                <p>Isi peraturan yang berlaku pada MAS-TOUR Travel.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let kursiTerpilih = [];
+
+        function mulai() {
+    const seatContainer = document.getElementById('seatContainer');
+    seatContainer.innerHTML = "";
+
+    const jumlahDuduk = document.getElementById('tempatduduk').value;
+
+    for (let i = 1; i <= jumlahDuduk; i++) {
+        const seat = document.createElement('div');
+        seat.classList.add('seat');
+        seat.textContent = i;
+        seat.id = `seat-${i}`;
+
+        // Tentukan kursi driver menjadi kursi ketiga
+        if (i === 3) {
+            seat.classList.add('driver');
+            seat.onclick = null; // Nonaktifkan klik untuk kursi driver
+        } else {
+            seat.onclick = () => pilihKursi(i);
+        }
+
+        seatContainer.appendChild(seat);
+    }
+
+    updateTable(jumlahDuduk);
+}
+
+
+        function updateTable(jumlahDuduk) {
+            const tableBody = document.getElementById('bookingTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
+
+            for (let i = 1; i <= jumlahDuduk; i++) {
+                const row = document.createElement('tr');
+                
+                const noCell = document.createElement('td');
+                noCell.textContent = i;
+                row.appendChild(noCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = "";
+                nameCell.id = `nama-${i}`;
+                row.appendChild(nameCell);
+
+                const actionCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('button');
+                deleteButton.style.backgroundColor = "red";
+                deleteButton.textContent = "Hapus";
+                deleteButton.onclick = () => hapusNama(i);
+                actionCell.appendChild(deleteButton);
+                row.appendChild(actionCell);
+
+                tableBody.appendChild(row);
+            }
+        }
+
+        function pilihKursi(nomor) {
+            const seat = document.getElementById(`seat-${nomor}`);
+            
+            if (seat.classList.contains("selected")) {
+                seat.classList.remove("selected");
+                kursiTerpilih = kursiTerpilih.filter(item => item !== nomor);
+            } else {
+                seat.classList.add("selected");
+                kursiTerpilih.push(nomor);
+            }
+        }
+
+        function simpan() {
+            const nama = document.getElementById('namaPemesan').value;
+
+            if (!nama || kursiTerpilih.length === 0) {
+                alert("Pilih kursi dan masukkan nama pemesan.");
+                return;
+            }
+
+            kursiTerpilih.forEach(kursi => {
+                document.getElementById(`nama-${kursi}`).textContent = nama;
+                document.getElementById(`seat-${kursi}`).classList.add("selected");
+            });
+
+            document.getElementById('namaPemesan').value = "";
+            kursiTerpilih = [];
+        }
+
+        function hapusNama(nomor) {
+            document.getElementById(`nama-${nomor}`).textContent = "";
+            document.getElementById(`seat-${nomor}`).classList.remove("selected");
+            kursiTerpilih = kursiTerpilih.filter(item => item !== nomor);
+        }
+
+        function reset() {
+            document.getElementById('seatContainer').innerHTML = "";
+            document.getElementById('bookingTable').getElementsByTagName('tbody')[0].innerHTML = "";
+            document.getElementById('namaPemesan').value = "";
+            kursiTerpilih = [];
+        }
+
+        const accordions = document.getElementsByClassName("accordion");
+        for (let i = 0; i < accordions.length; i++) {
+            accordions[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
