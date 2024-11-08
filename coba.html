@@ -183,14 +183,18 @@
         seat.textContent = i;
         seat.id = `seat-${i}`;
 
-        // Tentukan kursi driver menjadi kursi ketiga
+        // Menambah kondisi untuk menambahkan kursi tambahan di sebelah kursi kedua
         if (i === 3) {
-            seat.classList.add('driver');
-            seat.onclick = null; // Nonaktifkan klik untuk kursi driver
-        } else {
-            seat.onclick = () => pilihKursi(i);
+            const extraSeat = document.createElement('div');
+            extraSeat.classList.add('seat');
+            extraSeat.textContent = "Driver";
+            extraSeat.id = `seat-extra`;
+            extraSeat.style.backgroundColor = "blue"; // Memberi warna yang berbeda
+            seatContainer.appendChild(extraSeat); // Menambahkan kursi ekstra setelah kursi kedua
         }
 
+        // Menambahkan event listener untuk memilih kursi
+        seat.onclick = () => pilihKursi(i);
         seatContainer.appendChild(seat);
     }
 
