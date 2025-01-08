@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .row.full-height {
+        min-height: 100vh;
+      }
+
+      h1 {
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">Firli Nur Solafudin - 22SA11A018</h1>
+
+    <div class="container-fluid">
+      <div class="row full-height">
+        <!-- Kolom 1: Biodata & Kontak -->
+        <div class="col-12 col-md-3 bg-success p-3">
+            <img src="gambar.png" width="300" height="300" alt="gambar profile">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Biodata
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>responsi pweb</strong>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Kontak
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>
+                    <ul>
+                      <li>No kontak: 081918532071</li>
+                      <li>Email: firlinursolafudin@google.com</li>
+                    </ul>
+                  </strong>
+                  <!-- Tombol Kirim Email -->
+                  <a href="mailto:filrinursolafudin@google.com?subject=Inquiry&body=Hello firli, I would like to inquire about..." class="btn btn-primary mt-3">Kirim Email</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Kolom 2: Form Input Transaksi -->
+        <div class="col-12 col-md-3 bg-danger p-3">
+          <label for="TanggalMasuk">Tanggal Masuk</label>
+          <input type="date" name="Tanggal_masuk" id="tanggalmasuk" class="form-control">
+          
+          <label for="Nominal">Nominal</label>
+          <input type="number" name="Nominal" id="nominal" class="form-control" placeholder="Masukkan Nominal">
+          
+          <!-- Tombol Setor dan Tarik -->
+          <div class="mt-3">
+            <button type="button" class="btn btn-success" id="setorButton">Setor</button>
+            <button type="button" class="btn btn-warning" id="tarikButton">Tarik</button>
+            <button type="button " class="btn btn-secondary" id="akhirButton">akhir bulan</button>
+          </div>
+        </div>
+        
+        <!-- Kolom 3: Tabel Transaksi -->
+        <div class="col-12 col-md-6 bg-warning p-3">
+          <h3>Transaksi</h3>
+          <div id="transaksiOutput">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Tanggal Masuk</th>
+                  <th scope="col">Nominal</th>
+                  <th scope="col">Jenis Transaksi</th>
+                  <th scope="col">Saldo Akhir</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="transaksiTableBody">
+                <!-- Data transaksi akan dimasukkan di sini -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+      // Array untuk menyimpan transaksi
+      let transaksiList = [];
+      let saldo = 0; // Variabel untuk menyimpan saldo akhir
+      let jenisTransaksi = ""; // Menyimpan jenis transaksi sementara (Setor atau Tarik)
+
+      // Fungsi untuk menambah transaksi ke dalam tabel
+      function updateTransaksiTable() {
+        const transaksiTableBody = document.getElementById("transaksiTableBody");
+
+        // Bersihkan tabel sebelum menambahkan data baru
+        transaksiTableBody.innerHTML = "";
+
+        // Loop melalui transaksi dan masukkan ke dalam tabel
+        transaksiList.forEach((transaksi, index) => {
+          const row = document.createElement("tr");
+
+          // Buat cell untuk nomor, tanggal, nominal, jenis transaksi, saldo akhir, dan aksi
+          const nomorCell = document.createElement("td");
+          nomorCell.textContent = index + 1;
+          const tanggalCell = document.createElement("td");
+          tanggalCell.textContent = transaksi.tanggal;
+          const nominalCell = document.createElement("td");
+          nominalCell.textContent = transaksi.nominal;
+          const jenisTransaksiCell = document.createElement("td");
+          jenisTransaksiCell.textContent = transaksi.jenisTransaksi === 'deposit' ? 'Setor' : 'Tarik';
+          const saldoAkhirCell = document.createElement("td");
+          saldoAkhirCell.textContent = saldo;
+
+          // Buat tombol Hapus
+          const aksiCell = document.createElement("td");
+          const hapusButton = document.createElement("button");
+          hapusButton.classList.add("btn", "btn-danger");
+          hapusButton.textContent = "Hapus";
+          hapusButton.onclick = function() {
+            // Hapus transaksi berdasarkan index
+            deleteTransaction(index);
+          };
+
+          // Masukkan tombol Hapus ke dalam cell aksi
+          aksiCell.appendChild(hapusButton);
+
+          // Masukkan cell ke dalam row
+          row.appendChild(nomorCell);
+          row.appendChild(tanggalCell);
+          row.appendChild(nominalCell);
+          row.appendChild(jenisTransaksiCell);
+          row.appendChild(saldoAkhirCell);
+          row.appendChild(aksiCell);
+
+          // Masukkan row ke dalam tabel
+          transaksiTableBody.appendChild(row);
+        });
+      }
+
+      // Fungsi untuk menghapus transaksi berdasarkan index
+      function deleteTransaction(index) {
+    // Tampilkan pesan konfirmasi
+    const confirmDelete = confirm("Apakah Anda yakin ingin menghapus transaksi ini?");
+    
+    // Jika pengguna menekan OK, lanjutkan penghapusan
+    if (confirmDelete) {
+        // Hapus transaksi dari array
+        transaksiList.splice(index, 1);
+
+        // Update saldo akhir
+        updateSaldo();
+
+        // Update tabel setelah penghapusan
+        updateTransaksiTable();
+    }
+    // Jika pengguna menekan Cancel, tidak ada yang terjadi
+}
+
+
+      // Fungsi untuk menambahkan transaksi baru
+      document.getElementById("setorButton").addEventListener("click", function() {
+        jenisTransaksi = "deposit"; // Menetapkan jenis transaksi ke 'deposit'
+        addTransaksi();
+      });
+
+      document.getElementById("tarikButton").addEventListener("click", function() {
+        jenisTransaksi = "penarikan"; // Menetapkan jenis transaksi ke 'penarikan'
+        addTransaksi();
+      });
+
+      // Fungsi untuk menambah transaksi
+      function addTransaksi() {
+        const tanggalMasuk = document.getElementById("tanggalmasuk").value;
+        const nominal = parseFloat(document.getElementById("nominal").value);
+
+        // Validasi input
+        if (!tanggalMasuk || isNaN(nominal)) {
+          alert("Harap isi Tanggal Masuk dan Nominal!");
+          return;
+        }
+
+        // Tambahkan transaksi ke array transaksiList
+        transaksiList.push({ tanggal: tanggalMasuk, nominal: nominal, jenisTransaksi: jenisTransaksi });
+
+        // Update saldo akhir setelah transaksi
+        updateSaldo();
+
+        // Update tabel transaksi
+        updateTransaksiTable();
+      }
+
+      // Fungsi untuk update saldo akhir
+      function updateSaldo() {
+        saldo = transaksiList.reduce((total, transaksi) => {
+          return transaksi.jenisTransaksi === 'deposit' ? total + transaksi.nominal : total - transaksi.nominal;
+        }, 0);
+      }
+    </script>
+  </body>
+</html>

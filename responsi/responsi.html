@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        h1{
+            text-align: center;
+            background-color: white;
+        }
+        .hijau{
+            background-color: green;
+        }
+        .merah{
+            background-color: red;
+        }
+        .kuning{
+            background-color: yellow;
+        }
+        .putih{
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .email{
+            background-color: blue;
+            border-radius: 8px;
+            color: white;
+            height: 40px;
+            width: 120px;
+        }
+        .tombol{
+            margin: 20px;
+            margin-right: 0%;
+        }
+        .btnsetor{
+            border-radius: 8px;
+            background-color: green;
+            color: white;
+        }
+        .btntarik{
+            border-radius: 8px;
+            background-color: yellow;
+            color: black;
+        }
+        .btnahir{
+            border-radius: 8px;
+            background-color: gray;
+            color: white;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Firli Nur Solafudin - 22SA11A018</h1>
+        <div class="row mb-4">
+            <div class="hijau col-md-3 mb-3">
+                <div class="putih">
+                <div class="text-center">
+                    <img src="gambar.png" width="300" height="300" alt="gambar profile">
+                </div>
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Beranda
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                          Kontak
+                        </button>
+                      </h2>
+                      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Nomor Telepon : 081918532071</li>
+                                <li>Email : firli@gmail.com</li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="email">Kirim Email</button>
+                </div>
+            </div>
+            </div>
+            
+            <div class="merah col-md-3 mb-3">
+                <p>test</p>
+                <div>
+                    <label id="tanggal" value="tanggal">tanggal</label>
+                    <input type="date">
+                    <br><br>
+                    <label id="nominal" value="nominal">Nominal</label>
+                    <input type="number">
+                </div>
+                <div id="tombol" class="tombol">
+                    <button onclick="setor()" class="btnsetor" id="tombolsetor" value="setor">Setor</button>
+                    <button onclick="tarik()" class="btntarik" id="tomboltarik" value="tarik">Tarik</button>
+                    <button onclick="akhir()" class="btnakhir" id="tombolakhir" value="akhir">Akhir Bulan</button>
+                </div>
+            </div>
+
+            <div class="kuning col-md-6 mb-3">
+                <p id="dataTransaksi">test</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
